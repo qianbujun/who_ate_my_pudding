@@ -5,8 +5,7 @@ export default function MapModal({ onClose }) {
     <div className="map-modal-overlay" onClick={onClose}>
       <div className="map-card" onClick={e => e.stopPropagation()}>
         <div className="title-section">
-            <h2>红魔馆案发地图 (重置版)</h2>
-            <p>※ 严格依照面积与嵌套规则推演：客厅为主核心，右侧建筑65:35切分</p>
+            <h2>红魔馆案发地图</h2>
         </div>
 
         <div className="garden-outer">
@@ -22,7 +21,6 @@ export default function MapModal({ onClose }) {
                     <div className="basement">
                         <div className="room-name">地下室</div>
                         <div className="room-en">Basement</div>
-                        <div style={{fontSize: 11, marginTop: 5, opacity: 0.7}}>(锁定在客厅内部)</div>
                     </div>
                 </div>
 
@@ -30,12 +28,12 @@ export default function MapModal({ onClose }) {
                     <div className="room-block library">
                         <div className="cctv-badge" style={{top: 8, right: 8, padding: '2px 8px'}}>👁️‍🗨️ 监控</div>
                         <div className="room-name">图书馆</div>
-                        <div className="room-en">Library (65%)</div>
+                        <div className="room-en">Library</div>
                     </div>
                     
                     <div className="room-block kitchen">
                         <div className="room-name">厨房</div>
-                        <div className="room-en">Kitchen (35%)</div>
+                        <div className="room-en">Kitchen</div>
                     </div>
                 </div>
 
@@ -50,7 +48,7 @@ export default function MapModal({ onClose }) {
         </div>
 
         <div className="legend-box">
-            <div><strong>📐 地形逻辑：</strong><br/>1. 客厅是枢纽，前往地下室必须经过客厅。<br/>2. 右侧建筑与客厅完全接壤，且外围均接触花园。</div>
+            <div><br/>1. 相邻的两个地方可以相互进入。<br/>2. <strong>📐 地形逻辑：</strong>客厅是枢纽，前往地下室必须经过客厅。<br/>3. 右侧建筑外围均接触花园。</div>
             <div style={{textAlign: 'right'}}><span style={{color: '#ff4757', background: '#222', padding: '2px 6px', borderRadius: 4}}>👁️‍🗨️</span> <b>表示该区域存在监控</b></div>
         </div>
         

@@ -145,8 +145,7 @@ export default function Game() {
           setLogs(prev => {
              const newLogs = [...prev];
              let msg = `你问: ${extra}\n`;
-             if (reasoningStr) msg += `💭 思考过程:\n${reasoningStr}\n\n`;
-             if (contentStr) msg += `🗣️ 回答:\n【${targetName}】: ${contentStr}`;
+             if (contentStr) msg += `【${targetName}】: ${contentStr}`;
              else if (!contentStr) msg += `[AI思考中...]`;
              newLogs[logIndex] = msg;
              return newLogs;
