@@ -1,0 +1,208 @@
+.map-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.map-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    border: 2px solid #dcd1c4;
+    width: 90%;
+    max-width: 850px;
+    transform: scale(0.9);
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.title-section h2 {
+    color: #4a2525;
+    margin: 0 0 6px 0;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 26px;
+}
+
+.title-section p {
+    color: #777;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* 宏观区域：花园（包裹整个内宅） */
+.garden-outer {
+    background: linear-gradient(135deg, #5b783c, #415828);
+    border: 6px solid #2d3f1b;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: inset 0 0 35px rgba(0,0,0,0.5);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.garden-title {
+    color: #e2f0d9;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* 红魔馆内宅：采用 Flex 布局区分左右 */
+.mansion-interior {
+    display: flex;
+    gap: 15px;
+    background-color: #211616;
+    padding: 15px;
+    border-radius: 10px;
+    border: 4px solid #140d0d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    height: 380px;
+}
+
+/* 左侧：巨大的客厅 */
+.living-room {
+    flex: 1.8;
+    background: linear-gradient(135deg, #a65646, #7d3a2e);
+    border: 3px solid #c27566;
+    border-radius: 8px;
+    position: relative;
+    padding: 20px;
+    color: #fff;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.3);
+}
+
+/* 嵌套在客厅内部左下角的地下室 */
+.basement {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    width: 40%;
+    height: 35%;
+    background: linear-gradient(135deg, #4d494a, #302e2f);
+    border: 3px dashed #8c8586;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
+}
+
+.basement:hover {
+    transform: scale(1.02);
+    border-color: #b5b5b5;
+}
+
+/* 右侧：图书馆和厨房的容器 */
+.right-wing {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 房间通用基础样式 */
+.room-block {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* 图书馆 (65%高度) */
+.library {
+    flex: 65;
+    background: linear-gradient(135deg, #3a5870, #253b4d);
+    border: 3px solid #527a9c;
+    color: #fff;
+}
+
+/* 厨房 (35%高度) */
+.kitchen {
+    flex: 35;
+    background: linear-gradient(135deg, #c7a171, #a17d52);
+    border: 3px solid #e0be92;
+    color: #3e2723;
+}
+
+.room-name {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 6px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.kitchen .room-name { text-shadow: none; }
+.basement .room-name { font-size: 18px; letter-spacing: 2px; }
+
+.room-en {
+    font-size: 13px;
+    opacity: 0.75;
+    font-family: monospace;
+}
+
+/* 大门区域 (最下方) */
+.gate-container {
+    width: 45%;
+    margin: 0 auto;
+}
+
+.gate {
+    background: linear-gradient(135deg, #7a7164, #5c5448);
+    border: 4px solid #999083;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+/* 监控标记 */
+.cctv-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(15, 15, 15, 0.9);
+    color: #ff4757;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 10;
+}
+
+/* 图例说明 */
+.legend-box {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #faf8f5;
+    border: 1px dashed #c4bcae;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+}
