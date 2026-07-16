@@ -107,7 +107,7 @@ export default function Game() {
     const targetName = {sakuya: '十六夜咲夜', flandre: '芙兰朵露', patchouli: '帕秋莉', meiling: '红美铃', marisa: '雾雨魔理沙'}[target] || target;
 
     try {
-      const response = await fetch(`${api.defaults.baseURL || 'http://localhost:8000'}/api/game/action_stream`, {
+      const response = await fetch(`${api.defaults.baseURL}/api/game/action_stream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
