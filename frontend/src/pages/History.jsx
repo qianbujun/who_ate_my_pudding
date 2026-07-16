@@ -116,7 +116,7 @@ export default function History() {
                   <td style={{ borderBottom: '1px solid #333', padding: 10 }}>端茶返回图书馆。</td>
                   <td style={{ borderBottom: '1px solid #333', padding: 10 }}>穿过客厅回地下室洗澡。</td>
                   <td style={{ borderBottom: '1px solid #333', padding: 10 }}>刚醒，看见魔理沙飞走。</td>
-                  <td style={{ borderBottom: '1px solid #333', padding: 10, color: '#ffeb3b' }}>从内部强行打开厨房被锁的窗户逃跑。</td>
+                  <td style={{ borderBottom: '1px solid #333', padding: 10, color: '#ffeb3b' }}>从内部打开厨房被锁的窗户逃跑。</td>
                 </tr>
                 <tr>
                   <td style={{ borderBottom: '1px solid #333', padding: 10 }}>T6<br/><span style={{fontSize: 12, color: '#aaa'}}>15:30-16:00</span></td>

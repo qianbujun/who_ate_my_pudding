@@ -19,6 +19,7 @@ export default function Game() {
   const [marisaCaught, setMarisaCaught] = useState(false);
   const [investigatedLocs, setInvestigatedLocs] = useState(new Set());
   const [investigatedCCTVs, setInvestigatedCCTVs] = useState(new Set());
+  const [askedFixedChars, setAskedFixedChars] = useState(new Set());
   const [activeTarget, setActiveTarget] = useState(null);
   
   const logEndRef = useRef(null);
@@ -58,6 +59,10 @@ export default function Game() {
       
       if (actionType === 'catch' && target === 'marisa') {
         setMarisaCaught(true);
+      }
+      
+      if (actionType === 'ask_fixed') {
+        setAskedFixedChars(prev => new Set(prev).add(target));
       }
       
       if (actionType === 'investigate') {
@@ -187,9 +192,9 @@ export default function Game() {
                 <strong style={{ color: '#ff4d4d' }}>【游戏规则说明】</strong>
                 <ul style={{ margin: '10px 0 0 0', paddingLeft: 20, fontSize: 14 }}>
                   <li>在左侧查阅<strong>红魔馆地图</strong>，花费 AP 调查各个地点或查阅监控，搜集案发线索。</li>
-                  <li>选择嫌疑人进行<strong>【例行盘问】</strong>或通过自由打字进行<strong>【追问】</strong>。</li>
-                  <li><strong style={{ color: '#ffeb3b' }}>核心机制</strong>：嫌疑人可能会对你撒谎！你需要利用搜集到的地点线索、监控记录以及其他人的口供，在追问时指出逻辑矛盾，打破犯人的心理防线（逻辑破防）。</li>
-                  <li>当行动点数(AP)耗尽时，游戏将强制进入最终指认阶段。如果前期线索搜集不完整，你可能连真凶的影子都见不到！</li>
+                  <li>选择嫌疑人会先进行<strong>【例行盘问】</strong>之后允许通过自由打字进行<strong>【追问】</strong>。</li>
+                  <li><strong style={{ color: '#ffeb3b' }}>核心机制</strong>：嫌疑人可能会对你撒谎！你需要利用搜集到的地点线索、监控记录以及其他人的口供，在追问时指出逻辑矛盾，打破犯人的心理防线，他们才会对你说实话。</li>
+                  <li>当行动点数(AP)耗尽时，游戏将强制进入最终指认阶段。嫌疑人未亲自承认，但是指认成功也视为胜利。</li>
                 </ul>
               </div>
             </div>
@@ -270,7 +275,9 @@ export default function Game() {
           
           {activeTarget?.type === 'character' && (
             <div className="character-interaction">
-              <button className="btn" onClick={() => handleAction('ask_fixed', activeTarget.id)} disabled={loading} style={{marginBottom: 10}}>例行盘问 (-1 AP)</button>
+              {!askedFixedChars.has(activeTarget.id) && (
+                <button className="btn" onClick={() => handleAction('ask_fixed', activeTarget.id)} disabled={loading} style={{marginBottom: 10}}>例行盘问 (-1 AP)</button>
+              )}
               <div style={{display: 'flex', gap: 10}}>
                 <input 
                   className="input-field" 

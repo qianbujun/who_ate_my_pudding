@@ -49,7 +49,7 @@ export default function MapModal({ onClose }) {
 
         <div className="legend-box">
             <div><br/>1. 相邻的两个地方可以相互进入。<br/>2. <strong>📐 地形逻辑：</strong>客厅是枢纽，前往地下室必须经过客厅。<br/>3. 右侧建筑外围均接触花园。</div>
-            <div style={{textAlign: 'right'}}><span style={{color: '#ff4757', background: '#222', padding: '2px 6px', borderRadius: 4}}>👁️‍🗨️</span> <b>表示该区域存在监控</b></div>
+            <div style={{textAlign: 'right'}}><span style={{color: '#ff4757', background: '#fffbfb', padding: '2px 6px', borderRadius: 4}}>👁️‍🗨️</span> <b>调查监控可以得到该地区的人员行动信息</b></div>
         </div>
         
         <button 
