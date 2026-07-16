@@ -18,7 +18,7 @@ class GameSession(Base):
     start_time = Column(DateTime, default=datetime.datetime.utcnow)
     end_time = Column(DateTime, nullable=True)
     status = Column(String(20), default="playing") # playing, win_logic, win_guess, lose_guess
-    current_ap = Column(Integer, default=)
+    current_ap = Column(Integer, default=15)
     
     user = relationship("User", back_populates="sessions")
     actions = relationship("GameAction", back_populates="session")

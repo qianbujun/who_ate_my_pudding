@@ -183,6 +183,15 @@ export default function Game() {
               <p>直到 16:00，我满心欢喜地醒来，准备享受我那完美的下午茶时——</p>
               <p style={{ color: '#ff4d4d', fontWeight: 'bold' }}>厨房冰箱里的布丁竟然不翼而飞了！只留下一个空荡荡的盘子！</p>
               <p>这绝对不可原谅！馆里肯定有谁背着我偷吃了布丁。作为威严满满的大小姐，我必须亲自查明真相。我有 15 点行动力，必须在点数耗尽前找出真凶！</p>
+              <div style={{ background: 'rgba(255, 77, 77, 0.1)', padding: 15, borderRadius: 8, borderLeft: '4px solid #ff4d4d', marginTop: 20 }}>
+                <strong style={{ color: '#ff4d4d' }}>【游戏规则说明】</strong>
+                <ul style={{ margin: '10px 0 0 0', paddingLeft: 20, fontSize: 14 }}>
+                  <li>在左侧查阅<strong>红魔馆地图</strong>，花费 AP 调查各个地点或查阅监控，搜集案发线索。</li>
+                  <li>选择嫌疑人进行<strong>【例行盘问】</strong>或通过自由打字进行<strong>【追问】</strong>。</li>
+                  <li><strong style={{ color: '#ffeb3b' }}>核心机制</strong>：嫌疑人可能会对你撒谎！你需要利用搜集到的地点线索、监控记录以及其他人的口供，在追问时指出逻辑矛盾，打破犯人的心理防线（逻辑破防）。</li>
+                  <li>当行动点数(AP)耗尽时，游戏将强制进入最终指认阶段。如果前期线索搜集不完整，你可能连真凶的影子都见不到！</li>
+                </ul>
+              </div>
             </div>
             <button className="btn" style={{ width: '100%', fontSize: 18 }} onClick={() => setShowIntro(false)}>
               开始调查
@@ -287,7 +296,9 @@ export default function Game() {
                 <button className="btn" onClick={() => handleAction('guess', 'flandre')}>芙兰朵露</button>
                 <button className="btn" onClick={() => handleAction('guess', 'patchouli')}>帕秋莉</button>
                 <button className="btn" onClick={() => handleAction('guess', 'meiling')}>红美铃</button>
-                <button className="btn" onClick={() => handleAction('guess', 'marisa')}>雾雨魔理沙</button>
+                {marisaCaught && (
+                  <button className="btn" onClick={() => handleAction('guess', 'marisa')}>雾雨魔理沙</button>
+                )}
               </div>
             </div>
           )}
